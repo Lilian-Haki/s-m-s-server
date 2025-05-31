@@ -27,6 +27,13 @@ app.post('/api/login', (req, res) => {
   }
 });
 
+// server.js
+const studentRoutes = require('./routes/students');
+app.use('/api/students', studentRoutes);
+
+app.listen(5000, () => console.log('Server running on http://localhost:5000'));
+
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
