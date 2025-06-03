@@ -1,3 +1,12 @@
+//import express from 'express';
+//import cors from 'cors';
+//import bodyParser from 'body-parser';
+//import studentRoutes from './routes/students.jsx';
+//import teacherRoutes from './routes/teachers';
+//import examRoutes from './routes/exams';
+//import attendanceRoutes from './routes/attendance';
+//import courseRoutes from './routes/courses';
+
 // server/server.js
 const express = require('express');
 const cors = require('cors');
@@ -31,8 +40,8 @@ app.post('/api/login', (req, res) => {
 const studentRoutes = require('./routes/students');
 app.use('/api/students', studentRoutes);
 
-app.listen(5000, () => console.log('Server running on http://localhost:5000'));
-
+const teacherRoutes = require('./routes/teachers');
+app.use('/api/teachers', teacherRoutes);
 
 // Start server
 app.listen(PORT, () => {
