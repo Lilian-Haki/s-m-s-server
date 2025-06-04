@@ -11,6 +11,8 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 
 const app = express();
 const PORT = 5000;
@@ -18,6 +20,12 @@ const PORT = 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/school', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // Dummy users data
 const users = [
@@ -43,6 +51,8 @@ app.use('/api/students', studentRoutes);
 const teacherRoutes = require('./routes/teachers');
 app.use('/api/teachers', teacherRoutes);
 
+const courseRoutes = require('./routes/courses');
+app.use('/api/courses', courseRoutes);
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
