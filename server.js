@@ -53,6 +53,9 @@ app.use('/api/teachers', teacherRoutes);
 
 const courseRoutes = require('./routes/courses');
 app.use('/api/courses', courseRoutes);
+
+const examRoutes = require('./routes/exams');
+app.use('/api/exams', examRoutes);
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
